@@ -1,0 +1,16 @@
+version: '3'
+services:
+  ### Posgres database for Products
+  db-dispositivo:
+    container_name: db-dispositivo
+    image: postgres:15.2
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ms_dispositivo
+      POSTGRES_USER: iotdb
+      POSTGRES_PASSWORD: iot34t@1
+    ports:
+      - 5433:5433
+    expose:
+      - 5433
+    command: -p 5433
