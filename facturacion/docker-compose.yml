@@ -1,16 +1,16 @@
 version: '3'
 services:
-  ### Posgres database for Dispositivo
+  ### Posgres database for Facturacion
   db-dispositivo:
-    container_name: db-dispositivo
+    container_name: db-facturacion
     image: postgres:15.2
     restart: unless-stopped
     environment:
-      POSTGRES_DB: ms_dispositivo
+      POSTGRES_DB: ms_facturacion
       POSTGRES_USER: iotdb
       POSTGRES_PASSWORD: iot34t@1
     ports:
-      - 5433:5433
+      - 5434:5434
     expose:
-      - 5433
-    command: -p 5433
+      - 5434
+    command: -p 5434
