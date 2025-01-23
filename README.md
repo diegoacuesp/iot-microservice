@@ -25,7 +25,7 @@ Contiene el controlador que va a recibir información directamente por un metodo
 - nombreVariable
 - numeroSerie
 - estampaTiempo
-- valorVariablE
+- valorVariable
 
 Luego de ello se procesa y almacena en una base Postgres.
 
