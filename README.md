@@ -12,6 +12,7 @@ necesidad de desarrollo backend IOT para su sistema.
 - WebFlux
 - Eureka
 - Base de datos SQL PostgreSQL
+- Docker
 - Postman
 - Git
 - MQTT
