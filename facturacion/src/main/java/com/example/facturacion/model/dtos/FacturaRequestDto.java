@@ -1,7 +1,8 @@
 package com.example.facturacion.model.dtos;
 
 public record FacturaRequestDto(
-        String nombreVariable
+        String nombreVariable,
+        Long findUltimoIdDispositivo
 ) {
 
 }

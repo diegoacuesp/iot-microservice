@@ -11,6 +11,7 @@ public class Facturacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private Long idDispositivo;
     private String nombreVariable;
     private String numeroSerie;
     private String estampaTiempo;

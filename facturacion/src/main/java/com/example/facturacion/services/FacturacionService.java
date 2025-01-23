@@ -24,6 +24,7 @@ public class FacturacionService {
                 .retrieve() // Recuperamos el resultado
                 .bodyToFlux(DispositivoResponseDto.class) // Cambiar a `bodyToFlux` para arrays
                 .collectList() // Convertir el flujo en una lista
+                .cache() // Hace que el flujo sea "caliente" y compartido evitando multiples suscriptores y que se ejecute mas de una vez accidentalmente
                 .flatMap(dispositivos -> {
                     if (dispositivos == null || dispositivos.isEmpty()) {
                         return Mono.error(new RuntimeException("No se encontraron dispositivos para la solicitud."));
@@ -32,6 +33,7 @@ public class FacturacionService {
                     // Iterar sobre cada dispositivo, convertirlo a Facturacion y guardarlo
                     dispositivos.forEach(dispositivo -> {
                         Facturacion facturacion = new Facturacion();
+                        facturacion.setIdDispositivo(dispositivo.idDispositivo());
                         facturacion.setNombreVariable(dispositivo.nombreVariable());
                         facturacion.setNumeroSerie(dispositivo.numeroSerie());
                         facturacion.setEstampaTiempo(dispositivo.estampaTiempo());

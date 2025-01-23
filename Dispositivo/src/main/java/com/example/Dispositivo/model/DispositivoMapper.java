@@ -23,6 +23,7 @@ public class DispositivoMapper {
     //Transformamos el objeto Dispositivo entity a tipo DispositivoResponseDto que va al cliente
     public DispositivoResponseDto toDispositivoResponseDto ( Dispositivo dispositivo){
         return new DispositivoResponseDto(
+                dispositivo.getId(),
                 dispositivo.getNombreVariable(),
                 dispositivo.getNumeroSerie(),
                 dispositivo.getEstampaTiempo(),

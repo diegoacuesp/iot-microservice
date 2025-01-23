@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface DispositivoRepository extends JpaRepository<Dispositivo, Long> {
     List<Dispositivo> findByNombreVariable(String nombreVariable);
+    List<Dispositivo> findByNombreVariableAndIdGreaterThan(String nombreVariable, Long id);
 
 }

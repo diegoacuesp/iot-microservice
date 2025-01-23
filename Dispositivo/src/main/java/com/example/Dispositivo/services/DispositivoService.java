@@ -24,11 +24,25 @@ public class DispositivoService {
 
     }
 
-    public List<DispositivoResponseDto> findByVariableName (FacturaRequestDto facturaRequestDto){
+    public List<DispositivoResponseDto> findByVariableNameAndIdGreaterThan(FacturaRequestDto facturaRequestDto){
         String nombreVariable = facturaRequestDto.nombreVariable();
+        Long ultimoId = facturaRequestDto.findUltimoIdDispositivo();
 
-        // Consultar los registros desde el repositorio de dispositivo
-        List<Dispositivo> dispositivos = dispositivoRepository.findByNombreVariable(nombreVariable);
+        // Consultar los registros que coincidan con el nombreVariable y cuyo Id sea mayor que findUltimoIdDispositivo
+
+        List<Dispositivo> dispositivos;
+
+        if (ultimoId == null) {
+            // Si no hay filtro por findUltimoIdDispositivo, obtener todos los registros respecto al nombre de variable
+            dispositivos = dispositivoRepository.findByNombreVariable(nombreVariable);
+        } else {
+            // Si hay filtro, buscar por nombreVariable e id mayor a findUltimoIdDispositivo
+            dispositivos = dispositivoRepository.findByNombreVariableAndIdGreaterThan(nombreVariable, ultimoId);
+        }
+
+
+       // List<Dispositivo> dispositivos = dispositivoRepository.findByNombreVariableAndIdGreaterThan(nombreVariable, findUltimoIdDispositivo);
+
 
         // Convertir a DTO
         return dispositivos.stream()

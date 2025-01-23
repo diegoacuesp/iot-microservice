@@ -31,6 +31,6 @@ public class DispositivoController {
     public List<DispositivoResponseDto> envioDispositivo(@RequestBody FacturaRequestDto facturaRequestDto){
 
         //Implementa logica que procesa consulta a la BD y devuelve la consulta por WebFlux
-       return this.dispositivoService.findByVariableName(facturaRequestDto);
+       return this.dispositivoService.findByVariableNameAndIdGreaterThan(facturaRequestDto);
     }
 }
