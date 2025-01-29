@@ -1,5 +1,5 @@
 # IOT-Backend Microservice
-Este repoitorio es la primera versión del desarrollo realizado para un cliente con el cual se desplego un sistema IOT, cumpliendo la 
+Este repositorio es la primera versión del desarrollo realizado para un cliente con el cual se desplego un sistema IOT, cumpliendo la 
 necesidad de desarrollo backend IOT para su sistema.
 
 # Topicos y tecnologias aplicadas
